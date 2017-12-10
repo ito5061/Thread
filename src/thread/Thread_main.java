@@ -1,0 +1,35 @@
+package thread;
+
+public class Thread_main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Thread_run[] th = new Thread_run[2];{
+			for(int i = 0; i <= 1; i++) {
+				th[i] = new Thread_run();
+			}
+		}
+		Thread_runnable[] th2 = new Thread_runnable[1];{
+			for(int i = 0; i <= 0; i++) {
+				th2[i] = new Thread_runnable();
+			}
+		}
+		th[0].start();
+		th[1].start();
+		th2[0].run();
+		for(int i = 0; i <= 1; i++) {
+		try {
+			th[i].join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		for(int i = 0;i < 10;i++) {
+			System.out.println("main ‚©‚ço—Í: "+i);
+		}
+
+	}
+
+}
